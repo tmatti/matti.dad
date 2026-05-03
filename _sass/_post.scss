@@ -1,0 +1,87 @@
+.post-header {
+  margin-bottom: var(--space-2xl);
+}
+
+.post-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+
+  time {
+    font-size: var(--text-xs);
+    color: var(--muted);
+    font-weight: 500;
+  }
+}
+
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs);
+}
+
+.post-title {
+  font-size: var(--text-2xl);
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+.post-footer {
+  margin-top: var(--space-3xl);
+  padding-top: var(--space-xl);
+  border-top: 1px solid var(--rule);
+}
+
+.post-nav {
+  display: flex;
+  gap: var(--space-xl);
+}
+
+.post-nav-prev,
+.post-nav-next {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+  text-decoration: none;
+  max-width: 45%;
+
+  &:hover .post-nav-title {
+    color: var(--accent);
+  }
+}
+
+.post-nav-next {
+  text-align: right;
+  margin-left: auto;
+}
+
+.post-nav-label {
+  font-size: var(--text-xs);
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.post-nav-title {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--ink);
+  transition: color var(--transition-fast);
+}
+
+// Page layout (reused for about, tools, now, etc.)
+.page-header {
+  margin-bottom: var(--space-2xl);
+
+  h1 {
+    font-size: var(--text-2xl);
+    letter-spacing: -0.025em;
+  }
+}
+
+.page-subtitle {
+  margin-top: var(--space-sm);
+  color: var(--muted);
+  font-size: var(--text-sm);
+}

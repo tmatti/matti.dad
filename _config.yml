@@ -1,0 +1,38 @@
+title: matti.dad
+tagline: "field notes from the woods and the terminal"
+description: "A blog by Tim Matti — Ruby, Rails, AI, bowhunting, archery, and being a dad in the woods."
+url: "https://matti.dad"
+baseurl: ""
+
+author:
+  name: Tim Matti
+  email: tmatti56@gmail.com
+  github: tmatti
+
+permalink: /:year/:month/:slug/
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+      line_numbers: false
+
+sass:
+  style: compressed
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - CLAUDE.md
+  - AGENTS.md
+  - README.md
+  - .mise.toml
+  - .ruby-lsp/
+  - .claude/
+  - node_modules/

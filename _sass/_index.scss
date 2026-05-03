@@ -1,0 +1,120 @@
+.home-intro {
+  margin-bottom: var(--space-3xl);
+
+  h1 {
+    font-size: var(--text-2xl);
+    letter-spacing: -0.025em;
+    margin-bottom: var(--space-md);
+    line-height: 1.15;
+  }
+
+  p {
+    font-size: var(--text-base);
+    color: var(--muted);
+    max-width: 52ch;
+    line-height: 1.75;
+  }
+}
+
+.section-rule {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin-bottom: var(--space-2xl);
+}
+
+.post-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.post-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+}
+
+.post-item-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+
+  &::before {
+    content: '$';
+    color: var(--rule);
+    font-size: var(--text-xs);
+    font-weight: 500;
+    user-select: none;
+  }
+}
+
+.post-item-date {
+  font-size: var(--text-xs);
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.post-item-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs);
+}
+
+.post-item-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--ink);
+  padding-left: calc(var(--text-xs) + var(--space-sm) + 1ch);
+  transition: color var(--transition-fast);
+
+  &:hover {
+    color: var(--accent);
+  }
+}
+
+// Tag chip — used everywhere
+.tag-chip {
+  display: inline-block;
+  font-size: var(--text-xs);
+  color: var(--muted);
+  border: 1px solid var(--rule);
+  padding: 0.05em 0.4em;
+  border-radius: 2px;
+  text-decoration: none;
+  font-weight: 400;
+  line-height: 1.6;
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+
+  &:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    text-decoration: none;
+  }
+}
+
+// Tags index page
+.tag-section {
+  margin-bottom: var(--space-3xl);
+}
+
+.tag-section-heading {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--text-base);
+  font-weight: 700;
+  margin-bottom: var(--space-lg);
+
+  .tag-chip {
+    font-size: var(--text-sm);
+    padding: 0.15em 0.5em;
+  }
+}
+
+.tag-count {
+  font-size: var(--text-sm);
+  color: var(--muted);
+  font-weight: 400;
+}

@@ -1,0 +1,37 @@
+---
+layout: default
+---
+<article class="post">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y-%m-%d" }}</time>
+      {% if page.tags.size > 0 %}
+        <span class="post-tags">
+          {% for tag in page.tags %}
+            {% include tag-chip.html tag=tag %}
+          {% endfor %}
+        </span>
+      {% endif %}
+    </div>
+    <h1 class="post-title">{{ page.title }}</h1>
+  </header>
+  <div class="prose">
+    {{ content }}
+  </div>
+  <footer class="post-footer">
+    <nav class="post-nav" aria-label="Post navigation">
+      {% if page.previous %}
+        <a href="{{ page.previous.url | relative_url }}" class="post-nav-prev">
+          <span class="post-nav-label">← prev</span>
+          <span class="post-nav-title">{{ page.previous.title }}</span>
+        </a>
+      {% endif %}
+      {% if page.next %}
+        <a href="{{ page.next.url | relative_url }}" class="post-nav-next">
+          <span class="post-nav-label">next →</span>
+          <span class="post-nav-title">{{ page.next.title }}</span>
+        </a>
+      {% endif %}
+    </nav>
+  </footer>
+</article>

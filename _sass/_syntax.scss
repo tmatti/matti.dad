@@ -1,0 +1,41 @@
+// Woodsy syntax theme: greens for keywords, warm browns for strings, muted for comments
+
+.highlight, .highlighter-rouge {
+  background: var(--surface);
+  border-radius: 3px;
+}
+
+.highlight {
+  // Comments
+  .c, .cm, .c1, .cs { color: var(--muted); font-style: italic; }
+
+  // Keywords
+  .k, .kd, .kn, .kp, .kr, .kt { color: var(--accent); font-weight: 500; }
+
+  // Strings
+  .s, .sb, .sc, .sd, .s2, .sh, .si, .sx, .sr, .s1, .ss { color: var(--warm); }
+
+  // Numbers
+  .m, .mf, .mh, .mi, .mo { color: oklch(58% 0.09 80); }
+
+  // Variables
+  .nv, .vc, .vg, .vi { color: oklch(55% 0.08 130); }
+
+  // Operators and punctuation
+  .o, .ow { color: var(--muted); }
+  .p      { color: var(--ink); }
+
+  // Names (identifiers, functions, etc.)
+  .n, .na, .nb, .nc, .nd, .ne, .nf, .ni, .nl, .nn, .nx { color: var(--ink); }
+  .nt     { color: var(--accent); }     // HTML/XML tags
+  .bp     { color: var(--muted); }      // builtins like self, true, false
+
+  // Error
+  .err    { color: oklch(55% 0.12 25); }
+
+  // Generic: diff-like
+  .gd     { color: oklch(55% 0.12 25); }   // deleted
+  .gi     { color: var(--accent); }         // inserted
+  .ge     { font-style: italic; }
+  .gs     { font-weight: 700; }
+}

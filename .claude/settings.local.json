@@ -5,7 +5,10 @@
       "Bash(mise --version)",
       "Bash(mise ls *)",
       "Bash(mise trust *)",
-      "Bash(mise install *)"
+      "Bash(mise install *)",
+      "Bash(node *)",
+      "Bash(bundle install *)",
+      "Bash(bundle exec *)"
     ]
   }
 }

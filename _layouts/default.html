@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  {% include head.html %}
+</head>
+<body>
+  <div id="site">
+    <header class="topbar" id="topbar">
+      <span class="topbar-title"><a href="{{ '/' | relative_url }}">~/matti.dad</a></span>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="sidebar">
+        [ menu ]
+      </button>
+    </header>
+    <aside class="sidebar" id="sidebar" aria-label="Site navigation">
+      {% include sidebar.html %}
+    </aside>
+    <div class="sidebar-overlay" id="sidebar-overlay" aria-hidden="true"></div>
+    <main class="main" id="main">
+      {{ content }}
+    </main>
+  </div>
+  <script src="{{ '/assets/js/theme.js' | relative_url }}"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<div class="sidebar-inner">
+  <div class="sidebar-brand">
+    <a href="{{ '/' | relative_url }}" class="brand-link">~/matti.dad</a>
+  </div>
+
+  <nav class="sidebar-nav" aria-label="Main navigation">
+    <ul>
+      <li>
+        <a href="{{ '/about/' | relative_url }}"{% if page.url contains '/about' %} class="active"{% endif %}>
+          <span class="nav-prompt" aria-hidden="true">$</span> about
+        </a>
+      </li>
+      <li>
+        <a href="{{ '/' | relative_url }}"{% if page.url == '/' or page.layout == 'post' %} class="active"{% endif %}>
+          <span class="nav-prompt" aria-hidden="true">$</span> blog
+        </a>
+      </li>
+      <li>
+        <a href="{{ '/tools/' | relative_url }}"{% if page.url contains '/tools' %} class="active"{% endif %}>
+          <span class="nav-prompt" aria-hidden="true">$</span> tools
+        </a>
+      </li>
+      <li>
+        <a href="{{ '/now/' | relative_url }}"{% if page.url contains '/now' %} class="active"{% endif %}>
+          <span class="nav-prompt" aria-hidden="true">$</span> now
+        </a>
+      </li>
+      <li>
+        <a href="{{ '/tags/' | relative_url }}"{% if page.url contains '/tags' %} class="active"{% endif %}>
+          <span class="nav-prompt" aria-hidden="true">$</span> tags
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="sidebar-footer">
+    <div class="sidebar-social">
+      <a href="{{ site.feed.path | default: '/feed.xml' | prepend: site.baseurl }}" title="RSS feed">rss</a>
+      {% if site.author.github %}<a href="https://github.com/{{ site.author.github }}" title="GitHub" target="_blank" rel="noopener noreferrer">github</a>{% endif %}
+      {% if site.author.email %}<a href="mailto:{{ site.author.email }}" title="Email">email</a>{% endif %}
+    </div>
+    {% include theme-toggle.html %}
+  </div>
+</div>
