@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ruby --version)",
+      "Bash(mise --version)",
+      "Bash(mise ls *)",
+      "Bash(mise trust *)",
+      "Bash(mise install *)"
+    ]
+  }
+}
