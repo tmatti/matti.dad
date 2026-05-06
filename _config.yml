@@ -11,6 +11,10 @@ author:
 
 permalink: /:year/:month/:slug/
 
+collections:
+  pages:
+    output: true
+
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
