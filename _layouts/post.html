@@ -1,35 +1,35 @@
 ---
 layout: default
 ---
-<article class="post">
-  <header class="post-header">
-    <div class="post-meta">
-      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y-%m-%d" }}</time>
+<article>
+  <header class="mb-12">
+    <div class="mb-4 flex flex-wrap items-center gap-3">
+      <time class="text-xs font-medium text-muted" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y-%m-%d" }}</time>
       {% if page.tags.size > 0 %}
-        <span class="post-tags">
-          {% for tag in page.tags %}
-            {% include tag-chip.html tag=tag %}
-          {% endfor %}
+        <span class="flex flex-wrap gap-1">
+          {% for tag in page.tags %}{% include tag-chip.html tag=tag %}{% endfor %}
         </span>
       {% endif %}
     </div>
-    <h1 class="post-title">{{ page.title }}</h1>
+    <h1 class="text-3xl font-bold leading-tight tracking-tight text-ink">{{ page.title }}</h1>
   </header>
+
   <div class="prose">
     {{ content }}
   </div>
-  <footer class="post-footer">
-    <nav class="post-nav" aria-label="Post navigation">
+
+  <footer class="mt-16 border-t border-rule pt-8">
+    <nav class="flex gap-8" aria-label="Post navigation">
       {% if page.previous %}
-        <a href="{{ page.previous.url | relative_url }}" class="post-nav-prev">
-          <span class="post-nav-label">← prev</span>
-          <span class="post-nav-title">{{ page.previous.title }}</span>
+        <a href="{{ page.previous.url | relative_url }}" class="group flex max-w-[45%] flex-col gap-1 no-underline">
+          <span class="text-xs font-medium text-muted">← prev</span>
+          <span class="text-sm font-medium text-ink transition-colors group-hover:text-accent">{{ page.previous.title }}</span>
         </a>
       {% endif %}
       {% if page.next %}
-        <a href="{{ page.next.url | relative_url }}" class="post-nav-next">
-          <span class="post-nav-label">next →</span>
-          <span class="post-nav-title">{{ page.next.title }}</span>
+        <a href="{{ page.next.url | relative_url }}" class="group ml-auto flex max-w-[45%] flex-col gap-1 text-right no-underline">
+          <span class="text-xs font-medium text-muted">next →</span>
+          <span class="text-sm font-medium text-ink transition-colors group-hover:text-accent">{{ page.next.title }}</span>
         </a>
       {% endif %}
     </nav>

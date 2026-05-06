@@ -1,0 +1,15 @@
+{
+  "private": true,
+  "scripts": {
+    "css:watch": "tailwindcss -i src/input.css -o assets/css/main.css --watch",
+    "css:build": "tailwindcss -i src/input.css -o assets/css/main.css --minify",
+    "dev": "concurrently -k -n css,jekyll -c green,blue \"npm:css:watch\" \"bundle exec jekyll serve --livereload\"",
+    "build": "npm run css:build && bundle exec jekyll build"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.0",
+    "@tailwindcss/typography": "^0.5.16",
+    "concurrently": "^9.1.0",
+    "tailwindcss": "^4.1.0"
+  }
+}

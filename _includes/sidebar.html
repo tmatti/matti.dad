@@ -1,44 +1,55 @@
-<div class="sidebar-inner">
-  <div class="sidebar-brand">
-    <a href="{{ '/' | relative_url }}" class="brand-link">~/matti.dad</a>
+<div class="flex h-full flex-col gap-12 p-8">
+
+  <div>
+    <a href="{{ '/' | relative_url }}" class="text-sm font-bold tracking-tight text-ink no-underline hover:text-accent">~/matti.dad</a>
   </div>
 
-  <nav class="sidebar-nav" aria-label="Main navigation">
-    <ul>
+  <nav aria-label="Main navigation">
+    <ul class="flex flex-col gap-2">
       <li>
-        <a href="{{ '/about/' | relative_url }}"{% if page.url contains '/about' %} class="active"{% endif %}>
-          <span class="nav-prompt" aria-hidden="true">$</span> about
+        <a href="{{ '/about/' | relative_url }}"
+           class="flex items-center gap-2 py-1 text-sm font-medium no-underline transition-colors text-muted hover:text-ink [&.active]:text-accent{% if page.url contains '/about' %} active{% endif %}">
+          <span class="w-3 shrink-0 select-none text-rule transition-colors [.active_&]:text-accent" aria-hidden="true">$</span> about
         </a>
       </li>
       <li>
-        <a href="{{ '/' | relative_url }}"{% if page.url == '/' or page.layout == 'post' %} class="active"{% endif %}>
-          <span class="nav-prompt" aria-hidden="true">$</span> blog
+        <a href="{{ '/' | relative_url }}"
+           class="flex items-center gap-2 py-1 text-sm font-medium no-underline transition-colors text-muted hover:text-ink [&.active]:text-accent{% if page.url == '/' or page.layout == 'post' %} active{% endif %}">
+          <span class="w-3 shrink-0 select-none text-rule transition-colors [.active_&]:text-accent" aria-hidden="true">$</span> blog
         </a>
       </li>
       <li>
-        <a href="{{ '/tools/' | relative_url }}"{% if page.url contains '/tools' %} class="active"{% endif %}>
-          <span class="nav-prompt" aria-hidden="true">$</span> tools
+        <a href="{{ '/tools/' | relative_url }}"
+           class="flex items-center gap-2 py-1 text-sm font-medium no-underline transition-colors text-muted hover:text-ink [&.active]:text-accent{% if page.url contains '/tools' %} active{% endif %}">
+          <span class="w-3 shrink-0 select-none text-rule transition-colors [.active_&]:text-accent" aria-hidden="true">$</span> tools
         </a>
       </li>
       <li>
-        <a href="{{ '/now/' | relative_url }}"{% if page.url contains '/now' %} class="active"{% endif %}>
-          <span class="nav-prompt" aria-hidden="true">$</span> now
+        <a href="{{ '/now/' | relative_url }}"
+           class="flex items-center gap-2 py-1 text-sm font-medium no-underline transition-colors text-muted hover:text-ink [&.active]:text-accent{% if page.url contains '/now' %} active{% endif %}">
+          <span class="w-3 shrink-0 select-none text-rule transition-colors [.active_&]:text-accent" aria-hidden="true">$</span> now
         </a>
       </li>
       <li>
-        <a href="{{ '/tags/' | relative_url }}"{% if page.url contains '/tags' %} class="active"{% endif %}>
-          <span class="nav-prompt" aria-hidden="true">$</span> tags
+        <a href="{{ '/tags/' | relative_url }}"
+           class="flex items-center gap-2 py-1 text-sm font-medium no-underline transition-colors text-muted hover:text-ink [&.active]:text-accent{% if page.url contains '/tags' %} active{% endif %}">
+          <span class="w-3 shrink-0 select-none text-rule transition-colors [.active_&]:text-accent" aria-hidden="true">$</span> tags
         </a>
       </li>
     </ul>
   </nav>
 
-  <div class="sidebar-footer">
-    <div class="sidebar-social">
-      <a href="{{ site.feed.path | default: '/feed.xml' | prepend: site.baseurl }}" title="RSS feed">rss</a>
-      {% if site.author.github %}<a href="https://github.com/{{ site.author.github }}" title="GitHub" target="_blank" rel="noopener noreferrer">github</a>{% endif %}
-      {% if site.author.email %}<a href="mailto:{{ site.author.email }}" title="Email">email</a>{% endif %}
+  <div class="mt-auto flex flex-col gap-4">
+    <div class="flex gap-4">
+      <a href="{{ site.feed.path | default: '/feed.xml' | prepend: site.baseurl }}" class="text-xs font-medium text-muted no-underline transition-colors hover:text-accent">rss</a>
+      {% if site.author.github %}
+        <a href="https://github.com/{{ site.author.github }}" class="text-xs font-medium text-muted no-underline transition-colors hover:text-accent" target="_blank" rel="noopener noreferrer">github</a>
+      {% endif %}
+      {% if site.author.email %}
+        <a href="mailto:{{ site.author.email }}" class="text-xs font-medium text-muted no-underline transition-colors hover:text-accent">email</a>
+      {% endif %}
     </div>
     {% include theme-toggle.html %}
   </div>
+
 </div>

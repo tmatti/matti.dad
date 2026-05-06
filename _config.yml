@@ -6,7 +6,7 @@ baseurl: ""
 
 author:
   name: Tim Matti
-  email: tmatti56@gmail.com
+  email: tim@matti.dad
   github: tmatti
 
 permalink: /:year/:month/:slug/
@@ -23,9 +23,6 @@ kramdown:
     block:
       line_numbers: false
 
-sass:
-  style: compressed
-
 exclude:
   - Gemfile
   - Gemfile.lock
@@ -36,3 +33,7 @@ exclude:
   - .ruby-lsp/
   - .claude/
   - node_modules/
+  - package.json
+  - package-lock.json
+  - src/
+  - bin/

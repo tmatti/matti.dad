@@ -1,5 +1,10 @@
-<div class="theme-toggle" role="group" aria-label="Color theme">
-  <button class="theme-btn" data-theme-value="light" aria-pressed="false">light</button>
-  <span class="theme-sep" aria-hidden="true">|</span>
-  <button class="theme-btn" data-theme-value="dark" aria-pressed="false">dark</button>
+<div class="flex items-center text-xs before:mr-[0.15em] before:text-rule before:content-['['] after:ml-[0.15em] after:text-rule after:content-[']']"
+     role="group" aria-label="Color theme">
+  <button data-theme-value="light"
+          class="cursor-pointer border-0 bg-transparent px-[0.15em] font-mono text-xs font-medium text-muted transition-colors hover:text-ink aria-pressed:text-accent aria-pressed:underline aria-pressed:underline-offset-[3px] aria-pressed:decoration-accent"
+          aria-pressed="false">light</button>
+  <span class="select-none text-xs text-rule" aria-hidden="true">|</span>
+  <button data-theme-value="dark"
+          class="cursor-pointer border-0 bg-transparent px-[0.15em] font-mono text-xs font-medium text-muted transition-colors hover:text-ink aria-pressed:text-accent aria-pressed:underline aria-pressed:underline-offset-[3px] aria-pressed:decoration-accent"
+          aria-pressed="false">dark</button>
 </div>

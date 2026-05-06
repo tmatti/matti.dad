@@ -1,24 +1,54 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" data-theme="light">
-<head>
-  {% include head.html %}
-</head>
-<body>
-  <div id="site">
-    <header class="topbar" id="topbar">
-      <span class="topbar-title"><a href="{{ '/' | relative_url }}">~/matti.dad</a></span>
-      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="sidebar">
-        [ menu ]
-      </button>
-    </header>
-    <aside class="sidebar" id="sidebar" aria-label="Site navigation">
-      {% include sidebar.html %}
-    </aside>
-    <div class="sidebar-overlay" id="sidebar-overlay" aria-hidden="true"></div>
-    <main class="main" id="main">
-      {{ content }}
-    </main>
-  </div>
-  <script src="{{ '/assets/js/theme.js' | relative_url }}"></script>
-</body>
+    <head>
+        {% include head.html %}
+    </head>
+    <body class="font-mono antialiased">
+        <div id="site" class="min-h-dvh lg:grid lg:grid-cols-[260px_1fr]">
+            <!-- Mobile topbar -->
+            <header
+                class="sticky top-0 z-[100] flex h-12 items-center justify-between border-b border-rule bg-bg px-6 lg:hidden"
+            >
+                <a
+                    href="{{ '/' | relative_url }}"
+                    class="text-sm font-bold tracking-tight text-ink no-underline hover:text-accent"
+                    >~/matti.dad</a
+                >
+                <button
+                    id="menu-toggle"
+                    class="cursor-pointer border-0 bg-transparent px-3 py-2 font-mono text-xs font-medium text-muted hover:text-ink"
+                    aria-label="Toggle navigation"
+                    aria-expanded="false"
+                    aria-controls="sidebar"
+                >
+                    [ menu ]
+                </button>
+            </header>
+
+            <!-- Sidebar: off-canvas on mobile, sticky column on desktop -->
+            <aside
+                id="sidebar"
+                class="fixed top-0 bottom-0 left-0 z-200 w-[min(260px,85vw)] -translate-x-full overflow-y-auto border-r border-rule bg-bg transition-transform duration-200 [&.is-open]:translate-x-0 lg:sticky lg:bottom-auto lg:z-auto lg:h-dvh lg:w-auto lg:translate-x-0 lg:transition-none"
+                aria-label="Site navigation"
+            >
+                {% include sidebar.html %}
+            </aside>
+
+            <!-- Mobile overlay -->
+            <div
+                id="sidebar-overlay"
+                class="fixed inset-0 z-150 hidden bg-black/50 [&.is-visible]:block"
+                aria-hidden="true"
+            ></div>
+
+            <!-- Main content -->
+            <main
+                id="main"
+                class="min-w-0 px-8 py-12 lg:max-w-[820px] lg:px-12 lg:py-16"
+            >
+                {{ content }}
+            </main>
+        </div>
+        <script src="{{ '/assets/js/theme.js' | relative_url }}"></script>
+    </body>
 </html>

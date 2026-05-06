@@ -1,0 +1,104 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@source "../_layouts/**/*.html";
+@source "../_includes/**/*.html";
+@source "../*.{html,md}";
+@source "../_posts/**/*.md";
+
+/* ── Brand tokens ────────────────────────────────────────────────────────── */
+@theme {
+  --color-bg:      oklch(97% 0.012 95);
+  --color-surface: oklch(94% 0.016 95);
+  --color-ink:     oklch(22% 0.020 60);
+  --color-muted:   oklch(48% 0.018 60);
+  --color-rule:    oklch(86% 0.014 95);
+  --color-accent:  oklch(42% 0.085 145);
+  --color-warm:    oklch(50% 0.090 55);
+
+  --font-mono: "JetBrains Mono", ui-monospace, "Cascadia Code", monospace;
+}
+
+/* Dark mode — override custom props; no dark: prefixes needed in markup */
+[data-theme="dark"] {
+  --color-bg:      oklch(18% 0.012 60);
+  --color-surface: oklch(22% 0.016 60);
+  --color-ink:     oklch(92% 0.012 95);
+  --color-muted:   oklch(66% 0.018 95);
+  --color-rule:    oklch(30% 0.014 60);
+  --color-accent:  oklch(72% 0.10 145);
+  --color-warm:    oklch(74% 0.10 60);
+}
+
+/* ── Base layer ──────────────────────────────────────────────────────────── */
+@layer base {
+  html {
+    background-color: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-mono);
+    font-feature-settings: "liga" 1, "calt" 1, "ss01" 1;
+  }
+
+  ::selection {
+    background: color-mix(in oklch, var(--color-accent) 25%, transparent);
+  }
+}
+
+/* ── Typography plugin theme ─────────────────────────────────────────────── */
+/* Unlayered so it beats the plugin's @layer utilities defaults */
+.prose {
+  --tw-prose-body:         var(--color-ink);
+  --tw-prose-headings:     var(--color-ink);
+  --tw-prose-lead:         var(--color-muted);
+  --tw-prose-links:        var(--color-accent);
+  --tw-prose-bold:         var(--color-ink);
+  --tw-prose-counters:     var(--color-muted);
+  --tw-prose-bullets:      var(--color-rule);
+  --tw-prose-hr:           var(--color-rule);
+  --tw-prose-quotes:       var(--color-muted);
+  --tw-prose-quote-borders:var(--color-rule);
+  --tw-prose-captions:     var(--color-muted);
+  --tw-prose-code:         var(--color-ink);
+  --tw-prose-pre-code:     var(--color-ink);
+  --tw-prose-pre-bg:       var(--color-surface);
+  --tw-prose-th-borders:   var(--color-rule);
+  --tw-prose-td-borders:   var(--color-rule);
+}
+
+/* ── Rouge syntax highlighting ───────────────────────────────────────────── */
+/* Rouge injects class-based selectors; these can't be replaced with utilities */
+@layer components {
+  .highlight,
+  .highlighter-rouge { background: var(--color-surface); border-radius: 0.25rem; }
+
+  .highlight .c,  .highlight .cm, .highlight .c1,
+  .highlight .cs  { color: var(--color-muted); font-style: italic; }
+
+  .highlight .k,  .highlight .kd, .highlight .kn, .highlight .kp,
+  .highlight .kr, .highlight .kt { color: var(--color-accent); font-weight: 500; }
+
+  .highlight .s,  .highlight .sb, .highlight .sc, .highlight .sd,
+  .highlight .s2, .highlight .sh, .highlight .si, .highlight .sx,
+  .highlight .sr, .highlight .s1, .highlight .ss { color: var(--color-warm); }
+
+  .highlight .m,  .highlight .mf, .highlight .mh,
+  .highlight .mi, .highlight .mo { color: oklch(58% 0.09 80); }
+
+  .highlight .nv, .highlight .vc, .highlight .vg,
+  .highlight .vi  { color: oklch(55% 0.08 130); }
+
+  .highlight .o,  .highlight .ow { color: var(--color-muted); }
+  .highlight .p   { color: var(--color-ink); }
+
+  .highlight .n,  .highlight .na, .highlight .nb, .highlight .nc,
+  .highlight .nd, .highlight .ne, .highlight .nf, .highlight .ni,
+  .highlight .nl, .highlight .nn, .highlight .nx { color: var(--color-ink); }
+
+  .highlight .nt  { color: var(--color-accent); }
+  .highlight .bp  { color: var(--color-muted); }
+  .highlight .err { color: oklch(55% 0.12 25); }
+  .highlight .gd  { color: oklch(55% 0.12 25); }
+  .highlight .gi  { color: var(--color-accent); }
+  .highlight .ge  { font-style: italic; }
+  .highlight .gs  { font-weight: 700; }
+}

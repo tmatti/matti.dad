@@ -1,18 +1,16 @@
 {% assign posts = include.posts | default: site.posts %}
-<ol class="post-list" reversed>
+<ol class="flex flex-col gap-6" reversed>
   {% for post in posts %}
-  <li class="post-item">
-    <div class="post-item-meta">
-      <time class="post-item-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
+  <li class="flex flex-col gap-1">
+    <div class="flex flex-wrap items-center gap-3 before:select-none before:text-xs before:font-medium before:text-rule before:content-['$']">
+      <time class="text-xs font-medium text-muted" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
       {% if post.tags.size > 0 %}
-        <span class="post-item-tags">
-          {% for tag in post.tags %}
-            {% include tag-chip.html tag=tag %}
-          {% endfor %}
+        <span class="flex flex-wrap gap-1">
+          {% for tag in post.tags %}{% include tag-chip.html tag=tag %}{% endfor %}
         </span>
       {% endif %}
     </div>
-    <a href="{{ post.url | relative_url }}" class="post-item-title">{{ post.title }}</a>
+    <a href="{{ post.url | relative_url }}" class="pl-6 text-base font-medium text-ink no-underline transition-colors hover:text-accent">{{ post.title }}</a>
   </li>
   {% endfor %}
 </ol>

@@ -1,7 +1,7 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" data-theme="light">
-<head>
-  <meta charset="UTF-8">
+    <head>
+        <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light dark">
 <script>
@@ -37,72 +37,118 @@
 
 <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="matti.dad" />
 
-</head>
-<body>
-  <div id="site">
-    <header class="topbar" id="topbar">
-      <span class="topbar-title"><a href="/">~/matti.dad</a></span>
-      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="sidebar">
-        [ menu ]
-      </button>
-    </header>
-    <aside class="sidebar" id="sidebar" aria-label="Site navigation">
-      <div class="sidebar-inner">
-  <div class="sidebar-brand">
-    <a href="/" class="brand-link">~/matti.dad</a>
+    </head>
+    <body class="font-mono antialiased">
+        <div id="site" class="min-h-dvh lg:grid lg:grid-cols-[260px_1fr]">
+            <!-- Mobile topbar -->
+            <header
+                class="sticky top-0 z-[100] flex h-12 items-center justify-between border-b border-rule bg-bg px-6 lg:hidden"
+            >
+                <a
+                    href="/"
+                    class="text-sm font-bold tracking-tight text-ink no-underline hover:text-accent"
+                    >~/matti.dad</a
+                >
+                <button
+                    id="menu-toggle"
+                    class="cursor-pointer border-0 bg-transparent px-3 py-2 font-mono text-xs font-medium text-muted hover:text-ink"
+                    aria-label="Toggle navigation"
+                    aria-expanded="false"
+                    aria-controls="sidebar"
+                >
+                    [ menu ]
+                </button>
+            </header>
+
+            <!-- Sidebar: off-canvas on mobile, sticky column on desktop -->
+            <aside
+                id="sidebar"
+                class="fixed top-0 bottom-0 left-0 z-200 w-[min(260px,85vw)] -translate-x-full overflow-y-auto border-r border-rule bg-bg transition-transform duration-200 [&.is-open]:translate-x-0 lg:sticky lg:bottom-auto lg:z-auto lg:h-dvh lg:w-auto lg:translate-x-0 lg:transition-none"
+                aria-label="Site navigation"
+            >
+                <div class="flex h-full flex-col gap-12 p-8">
+
+  <div>
+    <a href="/" class="text-sm font-bold tracking-tight text-ink no-underline hover:text-accent">~/matti.dad</a>
   </div>
 
-  <nav class="sidebar-nav" aria-label="Main navigation">
-    <ul>
+  <nav aria-label="Main navigation">
+    <ul class="flex flex-col gap-2">
       <li>
-        <a href="/about/">
-          <span class="nav-prompt" aria-hidden="true">$</span> about
+        <a href="/about/"
+           class="flex items-center gap-2 py-1 text-sm font-medium no-underline transition-colors text-muted hover:text-ink [&.active]:text-accent">
+          <span class="w-3 shrink-0 select-none text-rule transition-colors [.active_&]:text-accent" aria-hidden="true">$</span> about
         </a>
       </li>
       <li>
-        <a href="/">
-          <span class="nav-prompt" aria-hidden="true">$</span> blog
+        <a href="/"
+           class="flex items-center gap-2 py-1 text-sm font-medium no-underline transition-colors text-muted hover:text-ink [&.active]:text-accent">
+          <span class="w-3 shrink-0 select-none text-rule transition-colors [.active_&]:text-accent" aria-hidden="true">$</span> blog
         </a>
       </li>
       <li>
-        <a href="/tools/" class="active">
-          <span class="nav-prompt" aria-hidden="true">$</span> tools
+        <a href="/tools/"
+           class="flex items-center gap-2 py-1 text-sm font-medium no-underline transition-colors text-muted hover:text-ink [&.active]:text-accent active">
+          <span class="w-3 shrink-0 select-none text-rule transition-colors [.active_&]:text-accent" aria-hidden="true">$</span> tools
         </a>
       </li>
       <li>
-        <a href="/now/">
-          <span class="nav-prompt" aria-hidden="true">$</span> now
+        <a href="/now/"
+           class="flex items-center gap-2 py-1 text-sm font-medium no-underline transition-colors text-muted hover:text-ink [&.active]:text-accent">
+          <span class="w-3 shrink-0 select-none text-rule transition-colors [.active_&]:text-accent" aria-hidden="true">$</span> now
         </a>
       </li>
       <li>
-        <a href="/tags/">
-          <span class="nav-prompt" aria-hidden="true">$</span> tags
+        <a href="/tags/"
+           class="flex items-center gap-2 py-1 text-sm font-medium no-underline transition-colors text-muted hover:text-ink [&.active]:text-accent">
+          <span class="w-3 shrink-0 select-none text-rule transition-colors [.active_&]:text-accent" aria-hidden="true">$</span> tags
         </a>
       </li>
     </ul>
   </nav>
 
-  <div class="sidebar-footer">
-    <div class="sidebar-social">
-      <a href="/feed.xml" title="RSS feed">rss</a>
-      <a href="https://github.com/tmatti" title="GitHub" target="_blank" rel="noopener noreferrer">github</a>
-      <a href="mailto:tmatti56@gmail.com" title="Email">email</a>
+  <div class="mt-auto flex flex-col gap-4">
+    <div class="flex gap-4">
+      <a href="/feed.xml" class="text-xs font-medium text-muted no-underline transition-colors hover:text-accent">rss</a>
+      
+        <a href="https://github.com/tmatti" class="text-xs font-medium text-muted no-underline transition-colors hover:text-accent" target="_blank" rel="noopener noreferrer">github</a>
+      
+      
+        <a href="mailto:tim@matti.dad" class="text-xs font-medium text-muted no-underline transition-colors hover:text-accent">email</a>
+      
     </div>
-    <div class="theme-toggle" role="group" aria-label="Color theme">
-  <button class="theme-btn" data-theme-value="light" aria-pressed="false">light</button>
-  <span class="theme-sep" aria-hidden="true">|</span>
-  <button class="theme-btn" data-theme-value="dark" aria-pressed="false">dark</button>
+    <div class="flex items-center text-xs before:mr-[0.15em] before:text-rule before:content-['['] after:ml-[0.15em] after:text-rule after:content-[']']"
+     role="group" aria-label="Color theme">
+  <button data-theme-value="light"
+          class="cursor-pointer border-0 bg-transparent px-[0.15em] font-mono text-xs font-medium text-muted transition-colors hover:text-ink aria-pressed:text-accent aria-pressed:underline aria-pressed:underline-offset-[3px] aria-pressed:decoration-accent"
+          aria-pressed="false">light</button>
+  <span class="select-none text-xs text-rule" aria-hidden="true">|</span>
+  <button data-theme-value="dark"
+          class="cursor-pointer border-0 bg-transparent px-[0.15em] font-mono text-xs font-medium text-muted transition-colors hover:text-ink aria-pressed:text-accent aria-pressed:underline aria-pressed:underline-offset-[3px] aria-pressed:decoration-accent"
+          aria-pressed="false">dark</button>
 </div>
 
   </div>
+
 </div>
 
-    </aside>
-    <div class="sidebar-overlay" id="sidebar-overlay" aria-hidden="true"></div>
-    <main class="main" id="main">
-      <article class="page">
-  <header class="page-header">
-    <h1>tools</h1>
+            </aside>
+
+            <!-- Mobile overlay -->
+            <div
+                id="sidebar-overlay"
+                class="fixed inset-0 z-150 hidden bg-black/50 [&.is-visible]:block"
+                aria-hidden="true"
+            ></div>
+
+            <!-- Main content -->
+            <main
+                id="main"
+                class="min-w-0 px-8 py-12 lg:max-w-[820px] lg:px-12 lg:py-16"
+            >
+                <article>
+  <header class="mb-12">
+    <h1 class="text-3xl font-bold leading-tight tracking-tight text-ink">tools</h1>
     
   </header>
   <div class="prose">
@@ -134,8 +180,8 @@
   </div>
 </article>
 
-    </main>
-  </div>
-  <script src="/assets/js/theme.js"></script>
-</body>
+            </main>
+        </div>
+        <script src="/assets/js/theme.js"></script>
+    </body>
 </html>

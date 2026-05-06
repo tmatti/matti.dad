@@ -8,7 +8,8 @@
       "Bash(mise install *)",
       "Bash(node *)",
       "Bash(bundle install *)",
-      "Bash(bundle exec *)"
+      "Bash(bundle exec *)",
+      "Bash(npm --version)"
     ]
   }
 }

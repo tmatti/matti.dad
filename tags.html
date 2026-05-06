@@ -3,26 +3,26 @@ layout: default
 title: tags
 permalink: /tags/
 ---
-<div class="page-header">
-  <h1>tags</h1>
+<div class="mb-12">
+  <h1 class="text-3xl font-bold leading-tight tracking-tight text-ink">tags</h1>
 </div>
 
 {% assign sorted_tags = site.tags | sort %}
 {% for tag in sorted_tags %}
   {% assign tag_name = tag[0] %}
   {% assign tag_posts = tag[1] %}
-  <section class="tag-section" id="{{ tag_name | slugify }}">
-    <h2 class="tag-section-heading">
+  <section class="mb-16" id="{{ tag_name | slugify }}">
+    <h2 class="mb-6 flex items-center gap-3 text-base font-bold">
       {% include tag-chip.html tag=tag_name %}
-      <span class="tag-count">({{ tag_posts.size }})</span>
+      <span class="text-sm font-normal text-muted">({{ tag_posts.size }})</span>
     </h2>
-    <ol class="post-list" reversed>
+    <ol class="flex flex-col gap-6" reversed>
       {% for post in tag_posts %}
-      <li class="post-item">
-        <div class="post-item-meta">
-          <time class="post-item-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
+      <li class="flex flex-col gap-1">
+        <div class="flex flex-wrap items-center gap-3 before:select-none before:text-xs before:font-medium before:text-rule before:content-['$']">
+          <time class="text-xs font-medium text-muted" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
         </div>
-        <a href="{{ post.url | relative_url }}" class="post-item-title">{{ post.title }}</a>
+        <a href="{{ post.url | relative_url }}" class="pl-6 text-base font-medium text-ink no-underline transition-colors hover:text-accent">{{ post.title }}</a>
       </li>
       {% endfor %}
     </ol>
