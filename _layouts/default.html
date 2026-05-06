@@ -1,9 +1,10 @@
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="en">
     <head>
         {% include head.html %}
     </head>
     <body class="font-mono antialiased">
+        <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[300] focus:rounded focus:border focus:border-accent focus:bg-bg focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-accent focus:no-underline">skip to content</a>
         <div id="site" class="min-h-dvh lg:grid lg:grid-cols-[260px_1fr]">
             <!-- Mobile topbar -->
             <header
@@ -12,17 +13,53 @@
                 <a
                     href="{{ '/' | relative_url }}"
                     class="text-sm font-bold tracking-tight text-ink no-underline hover:text-accent"
-                    >~/matti.dad</a
+                    >Tim Matti</a
                 >
-                <button
-                    id="menu-toggle"
-                    class="cursor-pointer border-0 bg-transparent px-3 py-2 font-mono text-xs font-medium text-muted hover:text-ink"
-                    aria-label="Toggle navigation"
-                    aria-expanded="false"
-                    aria-controls="sidebar"
-                >
-                    [ menu ]
-                </button>
+                <div class="flex items-center gap-3">
+                    {% include theme-toggle.html %}
+                    <button
+                        id="menu-toggle"
+                        class="cursor-pointer rounded border border-rule bg-surface p-1.5 text-ink transition-colors hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                        aria-label="Toggle navigation"
+                        aria-expanded="false"
+                        aria-controls="sidebar"
+                    >
+                        <svg
+                            id="menu-icon-open"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                        >
+                            <line x1="3" y1="6" x2="21" y2="6" />
+                            <line x1="3" y1="12" x2="21" y2="12" />
+                            <line x1="3" y1="18" x2="21" y2="18" />
+                        </svg>
+                        <svg
+                            id="menu-icon-close"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                            style="display: none"
+                        >
+                            <line x1="18" y1="6" x2="6" y2="18" />
+                            <line x1="6" y1="6" x2="18" y2="18" />
+                        </svg>
+                    </button>
+                </div>
             </header>
 
             <!-- Sidebar: off-canvas on mobile, sticky column on desktop -->
@@ -37,17 +74,21 @@
             <!-- Mobile overlay -->
             <div
                 id="sidebar-overlay"
-                class="fixed inset-0 z-150 hidden bg-black/50 [&.is-visible]:block"
+                class="fixed inset-0 z-150 hidden bg-ink/60 [&.is-visible]:block"
                 aria-hidden="true"
             ></div>
 
             <!-- Main content -->
             <main
                 id="main"
+                tabindex="-1"
                 class="min-w-0 px-8 py-12 lg:max-w-[820px] lg:px-12 lg:py-16"
             >
                 {{ content }}
             </main>
+        </div>
+        <div class="fixed right-4 top-3 z-[250] hidden lg:block">
+            {% include theme-toggle.html %}
         </div>
         <script src="{{ '/assets/js/theme.js' | relative_url }}"></script>
     </body>

@@ -9,7 +9,8 @@
       "Bash(node *)",
       "Bash(bundle install *)",
       "Bash(bundle exec *)",
-      "Bash(npm --version)"
+      "Bash(npm --version)",
+      "Bash(npm run *)"
     ]
   }
 }

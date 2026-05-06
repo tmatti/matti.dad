@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="en">
     <head>
         <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +15,8 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400..700;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/assets/css/main.css">
 <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>tags | matti.dad</title>
@@ -23,22 +24,24 @@
 <meta property="og:title" content="tags" />
 <meta name="author" content="Tim Matti" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="A blog by Tim Matti — Ruby, Rails, AI, bowhunting, archery, and being a dad in the woods." />
-<meta property="og:description" content="A blog by Tim Matti — Ruby, Rails, AI, bowhunting, archery, and being a dad in the woods." />
-<link rel="canonical" href="http://localhost:4000/tags/" />
-<meta property="og:url" content="http://localhost:4000/tags/" />
+<meta name="description" content="tags" />
+<meta property="og:description" content="tags" />
+<link rel="canonical" href="https://matti.dad/tags/" />
+<meta property="og:url" content="https://matti.dad/tags/" />
 <meta property="og:site_name" content="matti.dad" />
-<meta property="og:type" content="website" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2026-05-05T23:39:59-04:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="tags" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Tim Matti"},"description":"A blog by Tim Matti — Ruby, Rails, AI, bowhunting, archery, and being a dad in the woods.","headline":"tags","url":"http://localhost:4000/tags/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Tim Matti"},"dateModified":"2026-05-05T23:39:59-04:00","datePublished":"2026-05-05T23:39:59-04:00","description":"tags","headline":"tags","mainEntityOfPage":{"@type":"WebPage","@id":"https://matti.dad/tags/"},"url":"https://matti.dad/tags/"}</script>
 <!-- End Jekyll SEO tag -->
 
-<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="matti.dad" />
+<link type="application/atom+xml" rel="alternate" href="https://matti.dad/feed.xml" title="matti.dad" />
 
     </head>
     <body class="font-mono antialiased">
+        <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[300] focus:rounded focus:border focus:border-accent focus:bg-bg focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-accent focus:no-underline">skip to content</a>
         <div id="site" class="min-h-dvh lg:grid lg:grid-cols-[260px_1fr]">
             <!-- Mobile topbar -->
             <header
@@ -47,17 +50,70 @@
                 <a
                     href="/"
                     class="text-sm font-bold tracking-tight text-ink no-underline hover:text-accent"
-                    >~/matti.dad</a
+                    >Tim Matti</a
                 >
-                <button
-                    id="menu-toggle"
-                    class="cursor-pointer border-0 bg-transparent px-3 py-2 font-mono text-xs font-medium text-muted hover:text-ink"
-                    aria-label="Toggle navigation"
-                    aria-expanded="false"
-                    aria-controls="sidebar"
-                >
-                    [ menu ]
-                </button>
+                <div class="flex items-center gap-3">
+                    <button class="theme-toggle cursor-pointer rounded border border-rule bg-surface p-1.5 text-ink transition-colors hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+        aria-label="Toggle color theme">
+  <svg class="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <circle cx="12" cy="12" r="4"/>
+    <line x1="12" y1="2" x2="12" y2="6"/>
+    <line x1="12" y1="18" x2="12" y2="22"/>
+    <line x1="4.93" y1="4.93" x2="7.76" y2="7.76"/>
+    <line x1="16.24" y1="16.24" x2="19.07" y2="19.07"/>
+    <line x1="2" y1="12" x2="6" y2="12"/>
+    <line x1="18" y1="12" x2="22" y2="12"/>
+    <line x1="4.93" y1="19.07" x2="7.76" y2="16.24"/>
+    <line x1="16.24" y1="7.76" x2="19.07" y2="4.93"/>
+  </svg>
+  <svg class="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+  </svg>
+</button>
+
+                    <button
+                        id="menu-toggle"
+                        class="cursor-pointer rounded border border-rule bg-surface p-1.5 text-ink transition-colors hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                        aria-label="Toggle navigation"
+                        aria-expanded="false"
+                        aria-controls="sidebar"
+                    >
+                        <svg
+                            id="menu-icon-open"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                        >
+                            <line x1="3" y1="6" x2="21" y2="6" />
+                            <line x1="3" y1="12" x2="21" y2="12" />
+                            <line x1="3" y1="18" x2="21" y2="18" />
+                        </svg>
+                        <svg
+                            id="menu-icon-close"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                            style="display: none"
+                        >
+                            <line x1="18" y1="6" x2="6" y2="18" />
+                            <line x1="6" y1="6" x2="18" y2="18" />
+                        </svg>
+                    </button>
+                </div>
             </header>
 
             <!-- Sidebar: off-canvas on mobile, sticky column on desktop -->
@@ -67,69 +123,95 @@
                 aria-label="Site navigation"
             >
                 <div class="flex h-full flex-col gap-12 p-8">
-
-  <div>
-    <a href="/" class="text-sm font-bold tracking-tight text-ink no-underline hover:text-accent">~/matti.dad</a>
-  </div>
-
-  <nav aria-label="Main navigation">
-    <ul class="flex flex-col gap-2">
-      <li>
-        <a href="/about/"
-           class="flex items-center gap-2 py-1 text-sm font-medium no-underline transition-colors text-muted hover:text-ink [&.active]:text-accent">
-          <span class="w-3 shrink-0 select-none text-rule transition-colors [.active_&]:text-accent" aria-hidden="true">$</span> about
-        </a>
-      </li>
-      <li>
-        <a href="/"
-           class="flex items-center gap-2 py-1 text-sm font-medium no-underline transition-colors text-muted hover:text-ink [&.active]:text-accent">
-          <span class="w-3 shrink-0 select-none text-rule transition-colors [.active_&]:text-accent" aria-hidden="true">$</span> blog
-        </a>
-      </li>
-      <li>
-        <a href="/tools/"
-           class="flex items-center gap-2 py-1 text-sm font-medium no-underline transition-colors text-muted hover:text-ink [&.active]:text-accent">
-          <span class="w-3 shrink-0 select-none text-rule transition-colors [.active_&]:text-accent" aria-hidden="true">$</span> tools
-        </a>
-      </li>
-      <li>
-        <a href="/now/"
-           class="flex items-center gap-2 py-1 text-sm font-medium no-underline transition-colors text-muted hover:text-ink [&.active]:text-accent">
-          <span class="w-3 shrink-0 select-none text-rule transition-colors [.active_&]:text-accent" aria-hidden="true">$</span> now
-        </a>
-      </li>
-      <li>
-        <a href="/tags/"
-           class="flex items-center gap-2 py-1 text-sm font-medium no-underline transition-colors text-muted hover:text-ink [&.active]:text-accent active">
-          <span class="w-3 shrink-0 select-none text-rule transition-colors [.active_&]:text-accent" aria-hidden="true">$</span> tags
-        </a>
-      </li>
-    </ul>
-  </nav>
-
-  <div class="mt-auto flex flex-col gap-4">
-    <div class="flex gap-4">
-      <a href="/feed.xml" class="text-xs font-medium text-muted no-underline transition-colors hover:text-accent">rss</a>
-      
-        <a href="https://github.com/tmatti" class="text-xs font-medium text-muted no-underline transition-colors hover:text-accent" target="_blank" rel="noopener noreferrer">github</a>
-      
-      
-        <a href="mailto:tim@matti.dad" class="text-xs font-medium text-muted no-underline transition-colors hover:text-accent">email</a>
-      
+    <div class="flex items-center justify-between">
+        <a
+            href="/"
+            class="text-sm font-bold tracking-tight text-ink no-underline hover:text-accent"
+            >Tim Matti</a
+        >
     </div>
-    <div class="flex items-center text-xs before:mr-[0.15em] before:text-rule before:content-['['] after:ml-[0.15em] after:text-rule after:content-[']']"
-     role="group" aria-label="Color theme">
-  <button data-theme-value="light"
-          class="cursor-pointer border-0 bg-transparent px-[0.15em] font-mono text-xs font-medium text-muted transition-colors hover:text-ink aria-pressed:text-accent aria-pressed:underline aria-pressed:underline-offset-[3px] aria-pressed:decoration-accent"
-          aria-pressed="false">light</button>
-  <span class="select-none text-xs text-rule" aria-hidden="true">|</span>
-  <button data-theme-value="dark"
-          class="cursor-pointer border-0 bg-transparent px-[0.15em] font-mono text-xs font-medium text-muted transition-colors hover:text-ink aria-pressed:text-accent aria-pressed:underline aria-pressed:underline-offset-[3px] aria-pressed:decoration-accent"
-          aria-pressed="false">dark</button>
-</div>
 
-  </div>
+    <nav aria-label="Main navigation">
+        <ul class="flex flex-col gap-2">
+            <li>
+                <a
+                    href="/"
+                    class="flex items-center gap-2 py-1 text-sm font-medium no-underline transition-colors text-muted hover:text-ink [&.active]:text-accent"
+                >
+                    <span
+                        class="w-3 shrink-0 select-none text-rule transition-colors [.active_&]:text-accent"
+                        aria-hidden="true"
+                        >$</span
+                    >
+                    blog
+                </a>
+            </li>
+            <li>
+                <a
+                    href="/about/"
+                    class="flex items-center gap-2 py-1 text-sm font-medium no-underline transition-colors text-muted hover:text-ink [&.active]:text-accent"
+                >
+                    <span
+                        class="w-3 shrink-0 select-none text-rule transition-colors [.active_&]:text-accent"
+                        aria-hidden="true"
+                        >$</span
+                    >
+                    about
+                </a>
+            </li>
+            <li>
+                <a
+                    href="/now/"
+                    class="flex items-center gap-2 py-1 text-sm font-medium no-underline transition-colors text-muted hover:text-ink [&.active]:text-accent"
+                >
+                    <span
+                        class="w-3 shrink-0 select-none text-rule transition-colors [.active_&]:text-accent"
+                        aria-hidden="true"
+                        >$</span
+                    >
+                    now
+                </a>
+            </li>
+            <li>
+                <a
+                    href="/tags/"
+                    class="flex items-center gap-2 py-1 text-sm font-medium no-underline transition-colors text-muted hover:text-ink [&.active]:text-accent active"
+                >
+                    <span
+                        class="w-3 shrink-0 select-none text-rule transition-colors [.active_&]:text-accent"
+                        aria-hidden="true"
+                        >$</span
+                    >
+                    tags
+                </a>
+            </li>
+        </ul>
+    </nav>
 
+    <div class="mt-auto flex flex-col gap-4 border-t border-rule pt-6">
+        <div class="flex gap-4">
+            <a
+                href="/feed.xml"
+                class="text-xs font-medium text-muted no-underline transition-colors hover:text-accent"
+                >rss</a
+            >
+            
+            <a
+                href="https://github.com/tmatti"
+                class="text-xs font-medium text-muted no-underline transition-colors hover:text-accent"
+                target="_blank"
+                rel="noopener noreferrer"
+                >github</a
+            >
+             
+            <a
+                href="mailto:tim@matti.dad"
+                class="text-xs font-medium text-muted no-underline transition-colors hover:text-accent"
+                >email</a
+            >
+            
+        </div>
+    </div>
 </div>
 
             </aside>
@@ -137,17 +219,18 @@
             <!-- Mobile overlay -->
             <div
                 id="sidebar-overlay"
-                class="fixed inset-0 z-150 hidden bg-black/50 [&.is-visible]:block"
+                class="fixed inset-0 z-150 hidden bg-ink/60 [&.is-visible]:block"
                 aria-hidden="true"
             ></div>
 
             <!-- Main content -->
             <main
                 id="main"
+                tabindex="-1"
                 class="min-w-0 px-8 py-12 lg:max-w-[820px] lg:px-12 lg:py-16"
             >
                 <div class="mb-12">
-  <h1 class="text-3xl font-bold leading-tight tracking-tight text-ink">tags</h1>
+  <h1 class="text-3xl font-bold leading-snug tracking-tight text-ink">tags</h1>
 </div>
 
 
@@ -155,18 +238,18 @@
   
   
   <section class="mb-16" id="meta">
-    <h2 class="mb-6 flex items-center gap-3 text-base font-bold">
-      <a href="/tags/#meta" class="inline-block rounded-sm border border-rule px-1.5 py-px text-xs font-normal text-muted no-underline transition-colors hover:border-accent hover:text-accent">meta</a>
-
-      <span class="text-sm font-normal text-muted">(1)</span>
+    <h2 class="mb-6 flex items-center gap-2 text-sm font-bold text-ink">
+      <span class="select-none text-rule" aria-hidden="true">~/</span>
+      meta
+      <span class="font-normal text-muted">(1)</span>
     </h2>
     <ol class="flex flex-col gap-6" reversed>
       
       <li class="flex flex-col gap-1">
         <div class="flex flex-wrap items-center gap-3 before:select-none before:text-xs before:font-medium before:text-rule before:content-['$']">
-          <time class="text-xs font-medium text-muted" datetime="2026-05-03T00:00:00-04:00">2026-05-03</time>
+          <time class="text-xs font-medium text-muted" datetime="2026-05-05T00:00:00-04:00">2026-05-05</time>
         </div>
-        <a href="/2026/05/hello/" class="pl-6 text-base font-medium text-ink no-underline transition-colors hover:text-accent">hello, woods and terminal</a>
+        <a href="/2026/05/hello/" class="pl-6 text-base font-medium text-ink no-underline transition-colors hover:text-accent">Hello, world!</a>
       </li>
       
     </ol>
@@ -174,6 +257,26 @@
 
 
             </main>
+        </div>
+        <div class="fixed right-4 top-3 z-[250] hidden lg:block">
+            <button class="theme-toggle cursor-pointer rounded border border-rule bg-surface p-1.5 text-ink transition-colors hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+        aria-label="Toggle color theme">
+  <svg class="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <circle cx="12" cy="12" r="4"/>
+    <line x1="12" y1="2" x2="12" y2="6"/>
+    <line x1="12" y1="18" x2="12" y2="22"/>
+    <line x1="4.93" y1="4.93" x2="7.76" y2="7.76"/>
+    <line x1="16.24" y1="16.24" x2="19.07" y2="19.07"/>
+    <line x1="2" y1="12" x2="6" y2="12"/>
+    <line x1="18" y1="12" x2="22" y2="12"/>
+    <line x1="4.93" y1="19.07" x2="7.76" y2="16.24"/>
+    <line x1="16.24" y1="7.76" x2="19.07" y2="4.93"/>
+  </svg>
+  <svg class="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+  </svg>
+</button>
+
         </div>
         <script src="/assets/js/theme.js"></script>
     </body>
