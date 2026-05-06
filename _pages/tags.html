@@ -4,7 +4,7 @@ title: tags
 permalink: /tags/
 ---
 <div class="mb-12">
-  <h1 class="text-3xl font-bold leading-tight tracking-tight text-ink">tags</h1>
+  <h1 class="text-3xl font-bold leading-snug tracking-tight text-ink">tags</h1>
 </div>
 
 {% assign sorted_tags = site.tags | sort %}
@@ -12,9 +12,10 @@ permalink: /tags/
   {% assign tag_name = tag[0] %}
   {% assign tag_posts = tag[1] %}
   <section class="mb-16" id="{{ tag_name | slugify }}">
-    <h2 class="mb-6 flex items-center gap-3 text-base font-bold">
-      {% include tag-chip.html tag=tag_name %}
-      <span class="text-sm font-normal text-muted">({{ tag_posts.size }})</span>
+    <h2 class="mb-6 flex items-center gap-2 text-sm font-bold text-ink">
+      <span class="select-none text-rule" aria-hidden="true">~/</span>
+      {{ tag_name }}
+      <span class="font-normal text-muted">({{ tag_posts.size }})</span>
     </h2>
     <ol class="flex flex-col gap-6" reversed>
       {% for post in tag_posts %}
