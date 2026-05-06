@@ -1,31 +1,47 @@
 (function() {
-  var html    = document.documentElement;
-  var lightBtn = document.querySelector('[data-theme-value="light"]');
-  var darkBtn  = document.querySelector('[data-theme-value="dark"]');
-  var menuBtn  = document.getElementById('menu-toggle');
-  var sidebar  = document.getElementById('sidebar');
-  var overlay  = document.getElementById('sidebar-overlay');
+  var html         = document.documentElement;
+  var toggleBtns   = document.querySelectorAll('.theme-toggle');
+  var menuBtn      = document.getElementById('menu-toggle');
+  var menuIconOpen  = document.getElementById('menu-icon-open');
+  var menuIconClose = document.getElementById('menu-icon-close');
+  var sidebar      = document.getElementById('sidebar');
+  var overlay      = document.getElementById('sidebar-overlay');
 
   // --- Theme ---
   function setTheme(theme) {
     html.dataset.theme = theme;
     try { localStorage.setItem('theme', theme); } catch(e) {}
-    if (lightBtn) lightBtn.setAttribute('aria-pressed', theme === 'light' ? 'true' : 'false');
-    if (darkBtn)  darkBtn.setAttribute('aria-pressed', theme === 'dark'  ? 'true' : 'false');
+    var label = theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme';
+    toggleBtns.forEach(function(btn) {
+      var sun  = btn.querySelector('.theme-icon-sun');
+      var moon = btn.querySelector('.theme-icon-moon');
+      if (sun)  sun.style.display  = theme === 'dark'  ? 'block' : 'none';
+      if (moon) moon.style.display = theme === 'light' ? 'block' : 'none';
+      btn.setAttribute('aria-label', label);
+    });
   }
 
   // Sync button state on load
   setTheme(html.dataset.theme || 'light');
 
-  if (lightBtn) lightBtn.addEventListener('click', function() { setTheme('light'); });
-  if (darkBtn)  darkBtn.addEventListener('click', function() { setTheme('dark'); });
+  toggleBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      setTheme(html.dataset.theme === 'dark' ? 'light' : 'dark');
+    });
+  });
 
   // --- Mobile sidebar ---
+  function setMenuIcon(open) {
+    if (menuIconOpen)  menuIconOpen.style.display  = open ? 'none'  : 'block';
+    if (menuIconClose) menuIconClose.style.display = open ? 'block' : 'none';
+  }
+
   function openSidebar() {
     if (!sidebar) return;
     sidebar.classList.add('is-open');
     if (overlay) overlay.classList.add('is-visible');
     if (menuBtn) menuBtn.setAttribute('aria-expanded', 'true');
+    setMenuIcon(true);
     document.body.style.overflow = 'hidden';
   }
 
@@ -34,6 +50,7 @@
     sidebar.classList.remove('is-open');
     if (overlay) overlay.classList.remove('is-visible');
     if (menuBtn) menuBtn.setAttribute('aria-expanded', 'false');
+    setMenuIcon(false);
     document.body.style.overflow = '';
   }
 

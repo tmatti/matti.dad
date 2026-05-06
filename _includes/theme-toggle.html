@@ -1,10 +1,17 @@
-<div class="flex items-center text-xs before:mr-[0.15em] before:text-rule before:content-['['] after:ml-[0.15em] after:text-rule after:content-[']']"
-     role="group" aria-label="Color theme">
-  <button data-theme-value="light"
-          class="cursor-pointer border-0 bg-transparent px-[0.15em] font-mono text-xs font-medium text-muted transition-colors hover:text-ink aria-pressed:text-accent aria-pressed:underline aria-pressed:underline-offset-[3px] aria-pressed:decoration-accent"
-          aria-pressed="false">light</button>
-  <span class="select-none text-xs text-rule" aria-hidden="true">|</span>
-  <button data-theme-value="dark"
-          class="cursor-pointer border-0 bg-transparent px-[0.15em] font-mono text-xs font-medium text-muted transition-colors hover:text-ink aria-pressed:text-accent aria-pressed:underline aria-pressed:underline-offset-[3px] aria-pressed:decoration-accent"
-          aria-pressed="false">dark</button>
-</div>
+<button class="theme-toggle cursor-pointer rounded border border-rule bg-surface p-1.5 text-ink transition-colors hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+        aria-label="Toggle color theme">
+  <svg class="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <circle cx="12" cy="12" r="4"/>
+    <line x1="12" y1="2" x2="12" y2="6"/>
+    <line x1="12" y1="18" x2="12" y2="22"/>
+    <line x1="4.93" y1="4.93" x2="7.76" y2="7.76"/>
+    <line x1="16.24" y1="16.24" x2="19.07" y2="19.07"/>
+    <line x1="2" y1="12" x2="6" y2="12"/>
+    <line x1="18" y1="12" x2="22" y2="12"/>
+    <line x1="4.93" y1="19.07" x2="7.76" y2="16.24"/>
+    <line x1="16.24" y1="7.76" x2="19.07" y2="4.93"/>
+  </svg>
+  <svg class="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+  </svg>
+</button>
