@@ -1,0 +1,71 @@
+---
+layout: default
+title: observations
+permalink: /observations/
+---
+<div class="mb-12">
+  <h1 class="text-3xl font-bold leading-snug tracking-tight text-ink">observations</h1>
+  <p class="mt-4 max-w-[52ch] text-base leading-relaxed text-muted">
+    field notes from iNaturalist, synced automatically.
+  </p>
+</div>
+
+{% assign inat_posts = site.tags.inaturalist %}
+{% if inat_posts.size > 0 %}
+  <ul class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+    {% for post in inat_posts %}
+      {% if post.hero_photo %}
+        <li>
+          <a
+            href="{{ post.url | relative_url }}"
+            class="group relative block aspect-square overflow-hidden rounded-sm border border-rule bg-surface no-underline"
+          >
+            <img
+              src="{{ post.hero_photo }}"
+              alt="{{ post.title }}"
+              loading="lazy"
+              class="h-full w-full object-cover transition-transform duration-200 group-hover:scale-105"
+            />
+            <span
+              class="absolute inset-x-0 bottom-0 flex flex-col gap-0.5 bg-ink/70 px-2 py-1.5 opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+            >
+              <span class="truncate text-xs font-medium text-bg">{{ post.title }}</span>
+              <time class="text-[0.65rem] font-medium text-bg/70" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
+            </span>
+          </a>
+        </li>
+      {% else %}
+        <li>
+          <a
+            href="{{ post.url | relative_url }}"
+            class="flex aspect-square flex-col items-center justify-center gap-1 rounded-sm border border-rule bg-surface p-3 text-center no-underline transition-colors hover:border-accent"
+          >
+            <span class="line-clamp-3 text-xs font-medium text-ink">{{ post.title }}</span>
+            <time class="text-[0.65rem] font-medium text-muted" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
+          </a>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+{% else %}
+  <div class="flex flex-col gap-1 rounded-sm border border-rule bg-surface px-6 py-10 text-center">
+    <p class="font-mono text-sm text-muted">
+      <span class="select-none text-rule" aria-hidden="true">$</span>
+      ls observations/
+    </p>
+    <p class="text-sm text-muted">nothing synced yet. check back after the next outing.</p>
+  </div>
+{% endif %}
+
+<div class="mt-16 border-t border-rule pt-6">
+  <p class="text-xs font-medium text-muted">
+    <span class="select-none text-rule" aria-hidden="true">~/</span>
+    <a
+      href="https://www.inaturalist.org/observations/{{ site.inat_user }}"
+      class="text-muted no-underline transition-colors hover:text-accent"
+      target="_blank"
+      rel="noopener noreferrer"
+      >full profile on iNaturalist</a
+    >
+  </p>
+</div>

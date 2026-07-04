@@ -3,6 +3,8 @@ tagline: "field notes from the woods and the terminal"
 description: "A blog by Tim Matti — Ruby, Rails, AI, bowhunting, archery, and being a dad in the woods."
 url: "https://matti.dad"
 baseurl: ""
+inat_user: tmatti
+timezone: America/New_York
 
 author:
   name: Tim Matti
@@ -41,3 +43,4 @@ exclude:
   - package-lock.json
   - src/
   - bin/
+  - scripts/
