@@ -19,7 +19,7 @@ module InatSync
   USER_AGENT = "matti.dad-inat-sync (https://matti.dad)"
   PER_PAGE = 200
   PAGE_SLEEP = 0.7
-  ANTHROPIC_MODEL = "claude-haiku-4-5-20251001"
+  OPENROUTER_MODEL = "anthropic/claude-haiku-4.5"
 
   POST_TEMPLATE = <<~ERB
     <%= front_matter %>
@@ -180,7 +180,7 @@ module InatSync
   end
 
   def group_observations(new_observations, options)
-    use_llm = !options.backfill && ENV["ANTHROPIC_API_KEY"] && !ENV["ANTHROPIC_API_KEY"].empty?
+    use_llm = !options.backfill && ENV["OPENROUTER_API_KEY"] && !ENV["OPENROUTER_API_KEY"].empty?
 
     if use_llm
       groups = llm_group(new_observations)
@@ -225,58 +225,59 @@ module InatSync
       "field notes from the woods and the terminal".
     PROMPT
 
-    body = {
-      model: ANTHROPIC_MODEL,
-      max_tokens: 2048,
-      system: system_prompt,
-      messages: [
-        { role: "user", content: JSON.generate(compact) }
-      ],
-      tools: [
-        {
-          name: "report_groups",
-          input_schema: {
+    schema = {
+      type: "object",
+      properties: {
+        groups: {
+          type: "array",
+          items: {
             type: "object",
             properties: {
-              groups: {
-                type: "array",
-                items: {
-                  type: "object",
-                  properties: {
-                    ids: { type: "array", items: { type: "integer" } },
-                    title: { type: "string" },
-                    intro: { type: "string" }
-                  },
-                  required: %w[ids title intro]
-                }
-              }
+              ids: { type: "array", items: { type: "integer" } },
+              title: { type: "string" },
+              intro: { type: "string" }
             },
-            required: ["groups"]
+            required: %w[ids title intro],
+            additionalProperties: false
           }
         }
-      ],
-      tool_choice: { type: "tool", name: "report_groups" }
+      },
+      required: ["groups"],
+      additionalProperties: false
     }
 
-    uri = URI("https://api.anthropic.com/v1/messages")
+    body = {
+      model: OPENROUTER_MODEL,
+      max_tokens: 2048,
+      messages: [
+        { role: "system", content: system_prompt },
+        { role: "user", content: JSON.generate(compact) }
+      ],
+      response_format: {
+        type: "json_schema",
+        json_schema: { name: "report_groups", strict: true, schema: schema }
+      }
+    }
+
+    uri = URI("https://openrouter.ai/api/v1/chat/completions")
     request = Net::HTTP::Post.new(uri)
-    request["x-api-key"] = ENV["ANTHROPIC_API_KEY"]
-    request["anthropic-version"] = "2023-06-01"
-    request["content-type"] = "application/json"
+    request["Authorization"] = "Bearer #{ENV["OPENROUTER_API_KEY"]}"
+    request["Content-Type"] = "application/json"
+    request["HTTP-Referer"] = "https://matti.dad"
+    request["X-Title"] = "matti.dad inat-sync"
     request.body = JSON.generate(body)
 
     response = Net::HTTP.start(uri.host, uri.port, use_ssl: true) { |http| http.request(request) }
 
     unless response.is_a?(Net::HTTPSuccess)
-      warn "warning: Anthropic API request failed: #{response.code} #{response.message}"
+      warn "warning: OpenRouter API request failed: #{response.code} #{response.message}"
       return nil
     end
 
-    parsed = JSON.parse(response.body)
-    tool_use = parsed["content"]&.find { |block| block["type"] == "tool_use" }
-    return nil unless tool_use
+    content = JSON.parse(response.body).dig("choices", 0, "message", "content")
+    return nil unless content
 
-    groups = tool_use.dig("input", "groups")
+    groups = JSON.parse(content)["groups"]
     return nil unless groups.is_a?(Array)
 
     validate_groups(groups, new_observations.map { |obs| obs["id"] }) ? groups : nil

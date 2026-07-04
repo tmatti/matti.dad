@@ -32,7 +32,7 @@ jobs:
       - name: Sync observations
         run: ruby scripts/inat_sync.rb ${{ inputs.backfill == true && '--backfill' || '' }}
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
 
       - name: Build gate
         run: bundle exec jekyll build --strict_front_matter
