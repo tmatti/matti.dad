@@ -61,6 +61,19 @@
                     tags
                 </a>
             </li>
+            <li>
+                <a
+                    href="{{ '/observations/' | relative_url }}"
+                    class="flex items-center gap-2 py-1 text-sm font-medium no-underline transition-colors text-muted hover:text-ink [&.active]:text-accent{% if page.url contains '/observations' %} active{% endif %}"
+                >
+                    <span
+                        class="w-3 shrink-0 select-none text-rule transition-colors [.active_&]:text-accent"
+                        aria-hidden="true"
+                        >$</span
+                    >
+                    observations
+                </a>
+            </li>
         </ul>
     </nav>
 
